@@ -19,8 +19,8 @@ int main()
 	{
 	    n2 = n2 + b[i];
 	}
+
 	m = n2 - n1;
 	printf("%c\n",m);
-	printf("%s\n%s",a,b);
     return 0;
 }
