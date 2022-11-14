@@ -4,7 +4,7 @@ n, x = map(int, input().split())
 
 a = []
 #map function can take multiple inputs in one line and appends it to variables/arrays 
-for i in range(x):
+for i in range(3):
     a.append(map(float, input().split())) 
      
 '''for i in range (x):
