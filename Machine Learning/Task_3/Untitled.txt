@@ -1,0 +1,12 @@
+Tasks : The tasks are to be performed for the following five countries: England, Germany, France, Italy and Spain.
+-> done
+
+Create a dataframe that contains the country, name of the league, name of the team, the season, the number of goals scored by the team, and the number of goals scored against the team.
+-> done
+
+Plot the average goals per game over time for each of the mentioned countries, in a single plot.
+-> done
+
+Plot the number of goals per team, for each possible combination of buildUpPlaySpeedClass and buildUpPlayPassingClass, in the Team Attributes table. Create a separate plot for each one of the given countries.
+
+Work on an additional section that is entirely based on exploring player attributes. You have a free hand with respect to the sort of analysis you want to perform, and the types of plots that are a part of this section. Make sure to answer at least 3 questions in this section.
