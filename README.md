@@ -1,4 +1,1 @@
-# ML-playground 🤖📚
-
-# About 📚
-Welcome to ML-playground! This repository serves as a sandbox for exploring various machine learning concepts and techniques.
+<p align="center"><img src="https://socialify.git.ci/yashyaks/ML-playground/image?description=1&amp;font=Inter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Dark" alt="project-image"></p>
