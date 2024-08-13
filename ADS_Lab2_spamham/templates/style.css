@@ -1,0 +1,12 @@
+body {
+  font-family: 'Arimo', sans-serif;
+  background-color: #ff0000; /* Red background color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* The rest of your CSS styles remain the same */
