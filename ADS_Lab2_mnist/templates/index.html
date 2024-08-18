@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Digit Prediction</title>
+</head>
+<body>
+    <h1>Draw a Digit</h1>
+    <canvas id="canvas" width="280" height="280" style="border:1px solid #000000;"></canvas>
+    <button id="predictButton">Predict</button>
+    <p id="result"></p>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 280, 280);
+        let drawing = false;
+    
+        canvas.addEventListener('mousedown', () => drawing = true);
+        canvas.addEventListener('mouseup', () => drawing = false);
+        canvas.addEventListener('mousemove', draw);
+    
+        function draw(event) {
+            if (!drawing) return;
+            ctx.fillStyle = "white";
+            ctx.fillRect(event.offsetX, event.offsetY, 10, 10);
+        }
+    
+        document.getElementById('predictButton').addEventListener('click', () => {
+            // Create a new canvas to scale the image to 28x28
+            const smallCanvas = document.createElement('canvas');
+            smallCanvas.width = 28;
+            smallCanvas.height = 28;
+            const smallCtx = smallCanvas.getContext('2d');
+            
+            // Draw the scaled image onto the small canvas
+            smallCtx.drawImage(canvas, 0, 0, 28, 28);
+            
+            // Get the image data from the small canvas
+            const image = smallCtx.getImageData(0, 0, 28, 28);
+            const imageArray = [];
+            for (let i = 0; i < image.data.length; i += 4) {
+                imageArray.push(image.data[i] / 255);  // Normalize pixel values
+            }
+    
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({image: imageArray}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').textContent = `Predicted Digit: ${data.digit}`;
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
